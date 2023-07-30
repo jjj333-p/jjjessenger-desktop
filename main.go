@@ -93,8 +93,15 @@ func (chat chatUI) append(content string, authorname string) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return
 	}
+
+	// if resp.Body == nil {
+	// 	fmt.Println("No body response")
+	// 	return
+	// }
+
 	defer resp.Body.Close()
 
 	// Read the response body
